@@ -1,13 +1,12 @@
-package tools
+package global
 
 import (
-	"encoding/json"
 	"fmt"
 	"github.com/spf13/viper"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/schema"
-	"log"
+	"order/global/logger"
 	"strconv"
 	"time"
 )
@@ -17,14 +16,12 @@ var db *gorm.DB
 
 //包初始化函数，golang特性，每个包初始化的时候会自动执行init函数，这里用来初始化gorm。
 func init() {
-
 	viper.SetConfigFile("./config.yaml")
 	err := viper.ReadInConfig()
-	mysqlConfig := viper.Sub("mysql")
-
 	if err != nil { // 处理读取配置文件的错误
 		panic(fmt.Errorf("Fatal error config file: %s \n", err))
 	}
+	mysqlConfig := viper.Sub("mysql")
 	host := mysqlConfig.GetString("host")
 	port := mysqlConfig.GetInt("port")
 	dbName := mysqlConfig.GetString("dbname")
@@ -38,7 +35,6 @@ func init() {
 	connMaxLifeTime := time.Duration(viper.GetInt("conn-max-life-time"))
 
 	dsn := fmt.Sprintf("%s@(%s:%d)/%s?charset=%s&parseTime=%s&loc=%s&timeout=%s", username, host, port, dbName, charset, parseTime, loc, timeout)
-	log.Printf("mysql数据库的连接url==>%s", dsn)
 	db, err = gorm.Open(mysql.Open(dsn), &gorm.Config{NamingStrategy: schema.NamingStrategy{
 		// 表名前缀，`Product` 的表名应该是 `t_products`， 默认不起用
 		//TablePrefix: "",
@@ -54,9 +50,7 @@ func init() {
 	mysqlConn.SetMaxIdleConns(maxIdleConns)
 	mysqlConn.SetMaxOpenConns(maxOpenConns)
 	mysqlConn.SetConnMaxLifetime(connMaxLifeTime)
-	data, _ := json.Marshal(mysqlConn.Stats()) //获得当前的SQL配置情况
-	fmt.Println(string(data))
-
+	logger.Info("数据库连接成功")
 }
 
 func GetDB() *gorm.DB {
