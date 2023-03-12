@@ -15,3 +15,15 @@
 {"level":"info","ts":"2023-03-06 22:24:51.518426","caller":"global/db.go:54","msg":"数据库连接成功"}
 {"level":"info","ts":"2023-03-06 22:24:51.518714","caller":"global/redis.go:40","msg":"redis连接成功"}
 {"level":"info","ts":"2023-03-06 22:24:51.519234","caller":"order/main.go:30","msg":"grpc server is running at 127.0.0.1:8080 ..."}
+{"level":"info","ts":"2023-03-12 12:18:19.289403","caller":"global/db.go:53","msg":"数据库连接成功"}
+{"level":"info","ts":"2023-03-12 12:18:19.289952","caller":"global/redis.go:40","msg":"redis连接成功"}
+{"level":"info","ts":"2023-03-12 12:18:19.290041","caller":"core/server.go:19","msg":"grpc server is running at 127.0.0.1:8080 ..."}
+{"level":"info","ts":"2023-03-12 12:18:31.266716","caller":"global/db.go:53","msg":"数据库连接成功"}
+{"level":"info","ts":"2023-03-12 12:18:31.267046","caller":"global/redis.go:40","msg":"redis连接成功"}
+{"level":"info","ts":"2023-03-12 12:18:31.267149","caller":"core/server.go:19","msg":"grpc server is running at 127.0.0.1:8080 ..."}
+{"level":"info","ts":"2023-03-12 12:18:35.920211","caller":"global/db.go:53","msg":"数据库连接成功"}
+{"level":"info","ts":"2023-03-12 12:18:35.920499","caller":"global/redis.go:40","msg":"redis连接成功"}
+{"level":"info","ts":"2023-03-12 12:18:35.920584","caller":"core/server.go:19","msg":"grpc server is running at 127.0.0.1:8080 ..."}
+{"level":"info","ts":"2023-03-12 13:25:40.631030","caller":"global/db.go:53","msg":"数据库连接成功"}
+{"level":"info","ts":"2023-03-12 13:25:40.631661","caller":"global/redis.go:40","msg":"redis连接成功"}
+{"level":"info","ts":"2023-03-12 13:25:40.631804","caller":"core/server.go:33","msg":"grpc server is running at 127.0.0.1:8080 ..."}
